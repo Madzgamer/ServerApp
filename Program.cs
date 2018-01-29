@@ -13,8 +13,8 @@ namespace ServerApp
         {
             Server server = new Server();
             Console.ReadKey();
-            //Thread.Sleep(1000);
-            //Client client = new Client();
+            Thread.Sleep(1000);
+            Client client = new Client();
 
         }
     }
