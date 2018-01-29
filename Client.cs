@@ -11,6 +11,7 @@ namespace ServerApp
     {
         public Client()
         {
+
             using (var ws = new WebSocket("ws://localhost:46495/Chat"))
             {
                 ws.OnMessage += (sender, e) =>
