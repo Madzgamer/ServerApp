@@ -15,3 +15,5 @@ D:\GitHub\ServerApp\obj\Debug\ServerApp.csprojResolveAssemblyReference.cache
 D:\GitHub\ServerApp\obj\Debug\ServerApp.csproj.CoreCompileInputs.cache
 D:\GitHub\ServerApp\obj\Debug\ServerApp.exe
 D:\GitHub\ServerApp\obj\Debug\ServerApp.pdb
+C:\Users\Oliver\Documents\Visual Studio 2017\Projects\ServerApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Oliver\Documents\Visual Studio 2017\Projects\ServerApp\bin\Debug\Newtonsoft.Json.xml
