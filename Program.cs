@@ -26,13 +26,15 @@ namespace ServerApp
             string data = JsonConvert.SerializeObject(messages);
             Console.WriteLine(data);
 
+
+
+
             ChatMessages receivedMessages = JsonConvert.DeserializeObject<ChatMessages>(data);
 
             foreach(var message in receivedMessages.messages)
             {
-                Console.WriteLine(message.message);
+                Console.WriteLine(message.content);
             }
-
 
             Console.ReadLine();
             //server server = new server();
