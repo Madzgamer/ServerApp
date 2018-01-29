@@ -14,7 +14,7 @@ namespace ServerApp
             using (var ws = new WebSocket("ws://localhost:46495/Laputa"))
             {
                 ws.OnMessage += (sender, e) =>
-                    Console.WriteLine("Laputa says: " + e.Data);
+                    Console.WriteLine("Randal says: " + e.Data);
 
                 ws.Connect();
                 ws.Send("BALUS");
