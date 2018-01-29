@@ -14,7 +14,7 @@ namespace ServerApp
         public Server()
         {
             wssv = new WebSocketServer(46495);
-            wssv.AddWebSocketService<Laputa>("/Laputa");
+            wssv.AddWebSocketService<Chat>("/Chat");
             wssv.Start();
 
             if (wssv.IsListening)
@@ -31,7 +31,7 @@ namespace ServerApp
             wssv.Stop();
         }
 
-        public class Laputa : WebSocketBehavior
+        public class Chat : WebSocketBehavior
         {
             protected override void OnMessage(MessageEventArgs e)
             {
