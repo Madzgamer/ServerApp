@@ -6,3 +6,12 @@ C:\Users\Oliver\documents\visual studio 2017\Projects\ServerApp\bin\Debug\websoc
 C:\Users\Oliver\documents\visual studio 2017\Projects\ServerApp\obj\Debug\ServerApp.csprojResolveAssemblyReference.cache
 C:\Users\Oliver\documents\visual studio 2017\Projects\ServerApp\obj\Debug\ServerApp.exe
 C:\Users\Oliver\documents\visual studio 2017\Projects\ServerApp\obj\Debug\ServerApp.pdb
+D:\GitHub\ServerApp\bin\Debug\ServerApp.exe.config
+D:\GitHub\ServerApp\bin\Debug\ServerApp.exe
+D:\GitHub\ServerApp\bin\Debug\ServerApp.pdb
+D:\GitHub\ServerApp\bin\Debug\websocket-sharp.dll
+D:\GitHub\ServerApp\bin\Debug\websocket-sharp.xml
+D:\GitHub\ServerApp\obj\Debug\ServerApp.csprojResolveAssemblyReference.cache
+D:\GitHub\ServerApp\obj\Debug\ServerApp.csproj.CoreCompileInputs.cache
+D:\GitHub\ServerApp\obj\Debug\ServerApp.exe
+D:\GitHub\ServerApp\obj\Debug\ServerApp.pdb
