@@ -12,7 +12,6 @@ namespace ServerApp
         public Client()
         {
 
-
             using (var ws = new WebSocket("ws://localhost:46495/Laputa"))
             {
                 ws.OnMessage += (sender, e) =>
