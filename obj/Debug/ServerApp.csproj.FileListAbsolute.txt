@@ -1,0 +1,8 @@
+C:\Users\Oliver\documents\visual studio 2017\Projects\ServerApp\bin\Debug\ServerApp.exe.config
+C:\Users\Oliver\documents\visual studio 2017\Projects\ServerApp\bin\Debug\ServerApp.exe
+C:\Users\Oliver\documents\visual studio 2017\Projects\ServerApp\bin\Debug\ServerApp.pdb
+C:\Users\Oliver\documents\visual studio 2017\Projects\ServerApp\bin\Debug\websocket-sharp.dll
+C:\Users\Oliver\documents\visual studio 2017\Projects\ServerApp\bin\Debug\websocket-sharp.xml
+C:\Users\Oliver\documents\visual studio 2017\Projects\ServerApp\obj\Debug\ServerApp.csprojResolveAssemblyReference.cache
+C:\Users\Oliver\documents\visual studio 2017\Projects\ServerApp\obj\Debug\ServerApp.exe
+C:\Users\Oliver\documents\visual studio 2017\Projects\ServerApp\obj\Debug\ServerApp.pdb
