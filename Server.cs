@@ -35,9 +35,18 @@ namespace ServerApp
         {
             protected override void OnMessage(MessageEventArgs e)
             {
-                var msg = e.Data == "BALUS"
-                          ? "I've been balused already..."
-                          : "I'm not available now.";
+                //var msg = e.data == "balus"
+                //          ? "i've been balused already..."
+                //          : "I'm not available now.";
+
+                var msg = "";
+                if (e.Data == "BALUS")
+                {
+                    msg = "ROGER THAT";
+                } else
+                {
+                    msg = "command unrecognized!";
+                }
 
                 Send(msg);
             }
