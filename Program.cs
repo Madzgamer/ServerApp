@@ -11,9 +11,9 @@ namespace ServerApp
     {
         static void Main(string[] args)
         {
-            Server server = new Server();
+            //server server = new server();
 
-            Thread.Sleep(1000);
+            //thread.sleep(1000);
             Client client = new Client();
 
         }

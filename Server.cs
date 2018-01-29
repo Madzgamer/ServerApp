@@ -38,6 +38,7 @@ namespace ServerApp
                 //var msg = e.data == "balus"
                 //          ? "i've been balused already..."
                 //          : "I'm not available now.";
+                // same shit
 
                 var msg = "";
                 if (e.Data == "BALUS")
