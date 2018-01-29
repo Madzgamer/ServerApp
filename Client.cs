@@ -12,7 +12,8 @@ namespace ServerApp
         public Client()
         {
             // requestId, saab id
-            // getNewMessages, 
+            // loop
+            // getNewMessages, messagesObject
             //
             //oliveri ip  84.50.187.110
             using (var ws = new WebSocket("ws://localhost:46495/Chat"))
