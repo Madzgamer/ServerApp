@@ -12,9 +12,9 @@ namespace ServerApp
         static void Main(string[] args)
         {
             Server server = new Server();
-
-            Thread.Sleep(1000);
-            Client client = new Client();
+            Console.ReadKey();
+            //Thread.Sleep(1000);
+            //Client client = new Client();
 
         }
     }
