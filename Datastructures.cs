@@ -26,22 +26,22 @@ namespace ServerApp
             messages = new List<Message>();
         }
 
-        public void AddMessage(string message)
+        public void AddMessage(string content)
         {
-            messages.Add(new Message(message));
+            messages.Add(new Message(content));
         }
 
         public class Message
         {
-            public Message(string message)
+            public Message(string content)
             {
-                this.message = message;
+                this.content = content;
                 createdAt = DateTime.Now;
                 creator = -1;
             }
 
             public DateTime createdAt { get; set; }
-            public string message { get; set; }
+            public string content { get; set; }
             public int creator { get; set; }
         }
     }
