@@ -30,7 +30,7 @@ namespace ServerApp
         public void Run()
         {
 
-            using (var ws = new WebSocket("ws://localhost:46495/Chat"))
+            using (var ws = CreateWebSocket("localhost", 46495))
             {
                 ws.OnMessage += (sender, e) => OnMessageReaction(sender, e);
 
@@ -38,7 +38,7 @@ namespace ServerApp
 
                 Packet checkConn = new Packet(ActionCode.CONFCONN, "");
 
-                Console.WriteLine("Sending amessage");
+                Console.WriteLine("Sending a message");
                 ws.Send(JsonConvert.SerializeObject(checkConn));
 
 
