@@ -30,19 +30,21 @@ namespace ServerApp
         public void Run()
         {
 
-            using (var ws = CreateWebSocket("localhost", 46495))
+            using (var ws = new WebSocket("ws://localhost:46495/Chat"))
             {
                 ws.OnMessage += (sender, e) => OnMessageReaction(sender, e);
 
                 ws.Connect();
 
                 Packet checkConn = new Packet(ActionCode.CONFCONN, "");
+
+                Console.WriteLine("Sending amessage");
                 ws.Send(JsonConvert.SerializeObject(checkConn));
 
 
 
                 //ws.Send("BALUS");
-                //Console.ReadKey(true);
+                Console.ReadKey(true);
             }
 
         }
@@ -54,6 +56,7 @@ namespace ServerApp
 
         private void OnMessageReaction(Object sender, MessageEventArgs e)
         {
+            Console.WriteLine("Got a response!");
             Packet answer = JsonConvert.DeserializeObject<Packet>(e.Data);
             if(answer.actionCode == ActionCode.CONFCONN) {
                 if(answer.data == "confirmed")
