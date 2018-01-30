@@ -20,10 +20,10 @@ namespace ServerApp
             //oliveri ip  84.50.187.110
             //port 46495
 
-            run(); //tegelt peaks seda väljaspoolt tegema
+            Run(); //tegelt peaks seda väljaspoolt tegema
         }
 
-        public void run()
+        public void Run()
         {
 
             using (var ws = CreateWebSocket("localhost", 46495))
