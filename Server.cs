@@ -34,6 +34,8 @@ namespace ServerApp
 
         public class Chat : WebSocketBehavior
         {
+            List<int> idList = new List<int>();
+
             protected override void OnMessage(MessageEventArgs e)
             {
                 Console.WriteLine("Received a message!");
@@ -47,6 +49,13 @@ namespace ServerApp
                 {
                     Console.WriteLine("Sending a confirmation");
                     answer = new Packet(ActionCode.CONFCONN, "confirmed");
+                } else if (packet.actionCode == ActionCode.UNIQUEID)
+                {
+                    int id = 0000;
+                    while (idList.Contains(id) || id == 0)
+                    {
+
+                    }
                 }
                 else
                 {

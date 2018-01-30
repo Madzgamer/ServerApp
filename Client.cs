@@ -11,12 +11,13 @@ namespace ServerApp
     class Client
     {
         public bool connectionConfirmed { get; private set; }
+        private int id { get; set; }
 
         public Client()
         {
             connectionConfirmed = false;
             // CreateWebSocket()
-            // CheckConnection(), server returnib "Here" et kindlaks teha kas serveriga on ühendus
+            // CheckConnection()
             // RequestId, saab id
             // loop
             // GetNewMessages, messagesObject
@@ -54,20 +55,41 @@ namespace ServerApp
             return new WebSocket("ws://" + ip + ":" + port + "/Chat");
         }
 
+        private void RequestUniqueId(WebSocket ws)
+        {
+            ws.Send(JsonConvert.SerializeObject(   
+                new Packet(ActionCode.UNIQUEID, "")));
+        }
+
         private void OnMessageReaction(Object sender, MessageEventArgs e)
         {
             Console.WriteLine("Got a response!");
             Packet answer = JsonConvert.DeserializeObject<Packet>(e.Data);
-            if(answer.actionCode == ActionCode.CONFCONN) {
-                if(answer.data == "confirmed")
-                {
-                    Console.WriteLine("Houston, we have a solid connection!");
-                    connectionConfirmed = true;
-                }
-                else
-                {
-                    Console.WriteLine("Umm, SOMEHOW, the server TOLD us there is no connection?");
-                }
+
+            switch (answer.actionCode)
+            {
+                case ActionCode.CONFCONN:
+                    if (answer.data == "confirmed")
+                    {
+                        Console.WriteLine("Houston, we have a solid connection!");
+                        connectionConfirmed = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Umm, SOMEHOW, the server TOLD us there is no connection?");
+                    }
+                    break;
+                case ActionCode.UNIQUEID:
+                    id = Int32.Parse(answer.data);
+                    break;
+                case ActionCode.SENDMSG:
+                    break;
+                case ActionCode.RECMSG:
+                    break;
+                case ActionCode.UNKNOWN:
+                    break;
+                default:
+                    break;
             }
         }
     }
