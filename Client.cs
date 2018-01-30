@@ -16,7 +16,7 @@ namespace ServerApp
         {
             connectionConfirmed = false;
             // CreateWebSocket()
-            // CheckConnection(), server returnib "Here" et kindlaks teha kas serveriga on ühendus
+            // CheckConnection()
             // RequestId, saab id
             // loop
             // GetNewMessages, messagesObject
@@ -33,10 +33,14 @@ namespace ServerApp
             using (var ws = CreateWebSocket("localhost", 46495))
             {
                 ws.OnMessage += (sender, e) => OnMessageReaction(sender, e);
-
+                Console.WriteLine("test");
                 ws.Connect();
 
                 Packet checkConn = new Packet(ActionCode.CONFCONN, "");
+                if (ws.IsAlive)
+                {
+                    Console.WriteLine("alive");
+                }
                 ws.Send(JsonConvert.SerializeObject(checkConn));
 
 
@@ -54,6 +58,7 @@ namespace ServerApp
 
         private void OnMessageReaction(Object sender, MessageEventArgs e)
         {
+            Console.WriteLine("clientReact");
             Packet answer = JsonConvert.DeserializeObject<Packet>(e.Data);
             if(answer.actionCode == ActionCode.CONFCONN) {
                 if(answer.answer == "confirmed")

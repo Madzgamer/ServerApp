@@ -28,3 +28,5 @@ C:\GitHub repos\ServerApp\obj\Debug\ServerApp.csprojResolveAssemblyReference.cac
 C:\GitHub repos\ServerApp\obj\Debug\ServerApp.csproj.CoreCompileInputs.cache
 C:\GitHub repos\ServerApp\obj\Debug\ServerApp.exe
 C:\GitHub repos\ServerApp\obj\Debug\ServerApp.pdb
+D:\GitHub\ServerApp\bin\Debug\Newtonsoft.Json.dll
+D:\GitHub\ServerApp\bin\Debug\Newtonsoft.Json.xml

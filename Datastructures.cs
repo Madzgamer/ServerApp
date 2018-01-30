@@ -19,16 +19,14 @@ namespace ServerApp
     [Serializable]
     public class Packet
     {
+        public ActionCode actionCode { get; set; }
+        public string answer { get; set; }
+
         public Packet(ActionCode actionCode, string answer)
         {
             this.actionCode = actionCode;
             this.answer = answer;
         }
-
-        public ActionCode actionCode { get; set; }
-        public string answer { get; set; }
-
-
     }
 
     [Serializable]

@@ -36,6 +36,7 @@ namespace ServerApp
         {
             protected override void OnMessage(MessageEventArgs e)
             {
+                Console.WriteLine("serverReact");
                 Packet packet = JsonConvert.DeserializeObject<Packet>(e.Data);
                 Packet answer;
 
@@ -48,7 +49,7 @@ namespace ServerApp
                 {
                     answer = new Packet(ActionCode.UNKNOWN, "");
                 }
-
+                
                 Send(JsonConvert.SerializeObject(answer));
             }
         }
