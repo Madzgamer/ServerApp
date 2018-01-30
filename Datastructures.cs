@@ -43,6 +43,12 @@ namespace ServerApp
                 this.createdAt = createdAt;
                 this.creatorId = creatorId;
             }
+            public Message(string content, int creatorId)
+            {
+                this.content = content;
+                createdAt = DateTime.Now;
+                this.creatorId = creatorId;
+            }
 
             public DateTime createdAt { get; set; }
             public string content { get; set; }
