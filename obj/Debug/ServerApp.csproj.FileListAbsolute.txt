@@ -17,3 +17,14 @@ D:\GitHub\ServerApp\obj\Debug\ServerApp.exe
 D:\GitHub\ServerApp\obj\Debug\ServerApp.pdb
 C:\Users\Oliver\Documents\Visual Studio 2017\Projects\ServerApp\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Oliver\Documents\Visual Studio 2017\Projects\ServerApp\bin\Debug\Newtonsoft.Json.xml
+C:\GitHub repos\ServerApp\bin\Debug\ServerApp.exe.config
+C:\GitHub repos\ServerApp\bin\Debug\ServerApp.exe
+C:\GitHub repos\ServerApp\bin\Debug\ServerApp.pdb
+C:\GitHub repos\ServerApp\bin\Debug\Newtonsoft.Json.dll
+C:\GitHub repos\ServerApp\bin\Debug\websocket-sharp.dll
+C:\GitHub repos\ServerApp\bin\Debug\Newtonsoft.Json.xml
+C:\GitHub repos\ServerApp\bin\Debug\websocket-sharp.xml
+C:\GitHub repos\ServerApp\obj\Debug\ServerApp.csprojResolveAssemblyReference.cache
+C:\GitHub repos\ServerApp\obj\Debug\ServerApp.csproj.CoreCompileInputs.cache
+C:\GitHub repos\ServerApp\obj\Debug\ServerApp.exe
+C:\GitHub repos\ServerApp\obj\Debug\ServerApp.pdb
