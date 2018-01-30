@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 
 namespace ServerApp
 {
-    class Datastructures
-    {
-    }
-
 
     [Serializable]
     public class ChatMessages
