@@ -24,23 +24,25 @@ namespace ServerApp
             messages.AddMessage("Aega");
 
             string data = JsonConvert.SerializeObject(messages);
-            Console.WriteLine(data);
+            //Console.WriteLine(data);
 
 
 
 
-            ChatMessages receivedMessages = JsonConvert.DeserializeObject<ChatMessages>(data);
+            //ChatMessages receivedMessages = JsonConvert.DeserializeObject<ChatMessages>(data);
 
-            foreach(var message in receivedMessages.messages)
-            {
-                Console.WriteLine(message.content);
-            }
+            //foreach(var message in receivedMessages.messages)
+            //{
+            //    Console.WriteLine(message.content);
+            //}
+
+            //Console.ReadLine();
+            Server server = new Server();
+            //console.readkey();
+            Thread.Sleep(1000);
+            Client client = new Client();
 
             Console.ReadLine();
-            //server server = new server();
-            //console.readkey();
-            //thread.sleep(1000);
-            //client client = new client();
 
         }
     }

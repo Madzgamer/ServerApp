@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,21 +36,20 @@ namespace ServerApp
         {
             protected override void OnMessage(MessageEventArgs e)
             {
-                //var msg = e.data == "balus"
-                //          ? "i've been balused already..."
-                //          : "I'm not available now.";
-                // same shit
+                Packet packet = JsonConvert.DeserializeObject<Packet>(e.Data);
+                Packet answer;
 
-                var msg = "";
-                if (e.Data == "BALUS")
+                //If client request active connection confirmation
+                if (packet.actionCode == ActionCode.CONFCONN)
                 {
-                    msg = "ROGER THAT";
-                } else
+                    answer = new Packet(ActionCode.CONFCONN, "confirmed");
+                }
+                else
                 {
-                    msg = "command unrecognized!";
+                    answer = new Packet(ActionCode.UNKNOWN, "");
                 }
 
-                Send(msg);
+                Send(JsonConvert.SerializeObject(answer));
             }
         }
     }

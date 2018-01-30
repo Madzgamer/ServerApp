@@ -6,14 +6,30 @@ using System.Threading.Tasks;
 
 namespace ServerApp
 {
-    public enum AnswerCodes
+    public enum ActionCode
     {
         CONFCONN,
         UNIQUEID,
         SENDMSG,
         RECMSG,
+        UNKNOWN
     }
 
+
+    [Serializable]
+    public class Packet
+    {
+        public Packet(ActionCode actionCode, string answer)
+        {
+            this.actionCode = actionCode;
+            this.answer = answer;
+        }
+
+        public ActionCode actionCode { get; set; }
+        public string answer { get; set; }
+
+
+    }
 
     [Serializable]
     public class ChatMessages

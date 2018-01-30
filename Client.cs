@@ -4,13 +4,17 @@ using System.Linq;
 using WebSocketSharp;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace ServerApp
 {
     class Client
     {
+        public bool connectionConfirmed { get; private set; }
+
         public Client()
         {
+            connectionConfirmed = false;
             // CreateWebSocket()
             // CheckConnection(), server returnib "Here" et kindlaks teha kas serveriga on ühendus
             // RequestId, saab id
@@ -31,11 +35,14 @@ namespace ServerApp
                 ws.OnMessage += (sender, e) => OnMessageReaction(sender, e);
 
                 ws.Connect();
-                ws.Send("checkConnection");
+
+                Packet checkConn = new Packet(ActionCode.CONFCONN, "");
+                ws.Send(JsonConvert.SerializeObject(checkConn));
 
 
-                ws.Send("BALUS");
-                Console.ReadKey(true);
+
+                //ws.Send("BALUS");
+                //Console.ReadKey(true);
             }
 
         }
@@ -47,10 +54,17 @@ namespace ServerApp
 
         private void OnMessageReaction(Object sender, MessageEventArgs e)
         {
-            Console.WriteLine("Pede *Randal says: " + e.Data);
-            if (e.GetType() == Type.GetType("String"))
-            {
-
+            Packet answer = JsonConvert.DeserializeObject<Packet>(e.Data);
+            if(answer.actionCode == ActionCode.CONFCONN) {
+                if(answer.answer == "confirmed")
+                {
+                    Console.WriteLine("Houston, we have a solid connection!");
+                    connectionConfirmed = true;
+                }
+                else
+                {
+                    Console.WriteLine("Umm, SOMEHOW, the server TOLD us there is no connection?");
+                }
             }
         }
     }
