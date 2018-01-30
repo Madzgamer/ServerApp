@@ -36,20 +36,25 @@ namespace ServerApp
         {
             protected override void OnMessage(MessageEventArgs e)
             {
-                Console.WriteLine("serverReact");
+                Console.WriteLine("Received a message!");
+                Console.WriteLine("It contains: " + e.Data);
                 Packet packet = JsonConvert.DeserializeObject<Packet>(e.Data);
+
                 Packet answer;
 
                 //If client request active connection confirmation
                 if (packet.actionCode == ActionCode.CONFCONN)
                 {
+                    Console.WriteLine("Sending a confirmation");
                     answer = new Packet(ActionCode.CONFCONN, "confirmed");
                 }
                 else
                 {
+                    Console.WriteLine("Sending a confused message");
+
                     answer = new Packet(ActionCode.UNKNOWN, "");
                 }
-                
+
                 Send(JsonConvert.SerializeObject(answer));
             }
         }
