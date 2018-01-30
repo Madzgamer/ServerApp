@@ -56,7 +56,7 @@ namespace ServerApp
         {
             Packet answer = JsonConvert.DeserializeObject<Packet>(e.Data);
             if(answer.actionCode == ActionCode.CONFCONN) {
-                if(answer.answer == "confirmed")
+                if(answer.data == "confirmed")
                 {
                     Console.WriteLine("Houston, we have a solid connection!");
                     connectionConfirmed = true;
