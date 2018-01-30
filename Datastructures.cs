@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace ServerApp
 {
+    public enum AnswerCodes
+    {
+        CONFCONN,
+        UNIQUEID,
+        SENDMSG,
+        RECMSG,
+    }
+
 
     [Serializable]
     public class ChatMessages
