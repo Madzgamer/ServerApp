@@ -5,6 +5,7 @@ using WebSocketSharp;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Threading;
 
 namespace ServerApp
 {
@@ -42,10 +43,16 @@ namespace ServerApp
                 Console.WriteLine("Sending a message");
                 ws.Send(JsonConvert.SerializeObject(checkConn));
 
-
+                Thread.Sleep(1000);
+                if (connectionConfirmed)
+                {
+                    Packet getID = new Packet(ActionCode.UNIQUEID, "");
+                    ws.Send(JsonConvert.SerializeObject(getID));
+                }
+                Thread.Sleep(1000);
 
                 //ws.Send("BALUS");
-                Console.ReadKey(true);
+                //Console.ReadKey(true);
             }
 
         }
@@ -81,6 +88,7 @@ namespace ServerApp
                     break;
                 case ActionCode.UNIQUEID:
                     id = Int32.Parse(answer.data);
+                    Console.WriteLine("My new unique chat ID is " + id);
                     break;
                 case ActionCode.SENDMSG:
                     break;

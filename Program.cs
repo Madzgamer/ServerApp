@@ -28,7 +28,6 @@ namespace ServerApp
 
 
 
-
             //ChatMessages receivedMessages = JsonConvert.DeserializeObject<ChatMessages>(data);
 
             //foreach(var message in receivedMessages.messages)
@@ -40,7 +39,10 @@ namespace ServerApp
             Server server = new Server();
             //console.readkey();
             Thread.Sleep(1000);
-            Client client = new Client();
+            for (int i = 0; i < 5; i++)
+            {
+                Client client = new Client();
+            }
 
             Console.ReadLine();
 
