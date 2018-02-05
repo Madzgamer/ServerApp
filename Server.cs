@@ -13,10 +13,6 @@ namespace ServerApp
     {
         WebSocketServer wssv;
 
-        List<int> idList = new List<int>();
-        Queue<int> releasedIds = new Queue<int>();
-        int maxID = 0;
-
         public Server()
         {
             wssv = new WebSocketServer(46495);
@@ -37,29 +33,18 @@ namespace ServerApp
             wssv.Stop();
         }
 
-        public int GiveUniqueID()
-        {
-            if (releasedIds.Count == 0)
-            {
-                maxID++;
-                idList.Add(maxID);
-                Console.WriteLine("SERVER: Giving out new id with value of " + maxID);
-                return maxID;
-            }
-            else
-            {
-                int id = releasedIds.Dequeue();
-                idList.Add(id);
-                return id;
-            }
-        }
 
         public class Chat : WebSocketBehavior
         {
 
+            List<int> idList = new List<int>();
+            Queue<int> releasedIds = new Queue<int>();
+            int maxID = 0;
+
             protected override void OnMessage(MessageEventArgs e)
             {
                 Console.WriteLine("Received a message!");
+                Console.WriteLine(maxID);
                 Console.WriteLine("It contains: " + e.Data);
                 Packet packet = JsonConvert.DeserializeObject<Packet>(e.Data);
 
@@ -72,7 +57,7 @@ namespace ServerApp
                     answer = new Packet(ActionCode.CONFCONN, "confirmed");
                 } else if (packet.actionCode == ActionCode.UNIQUEID)
                 {
-                    answer = new Packet(ActionCode.UNIQUEID, Give);
+                    answer = new Packet(ActionCode.UNIQUEID, GiveUniqueID().ToString());
                 }
                 else
                 {
@@ -82,6 +67,24 @@ namespace ServerApp
                 }
 
                 Send(JsonConvert.SerializeObject(answer));
+            }
+
+            public int GiveUniqueID()
+            {
+                if (releasedIds.Count == 0)
+                {
+                    maxID++;
+                    Console.WriteLine(maxID);
+                    idList.Add(maxID);
+                    Console.WriteLine("SERVER: Giving out new id with value of " + maxID);
+                    return maxID;
+                }
+                else
+                {
+                    int id = releasedIds.Dequeue();
+                    idList.Add(id);
+                    return id;
+                }
             }
         }
     }
